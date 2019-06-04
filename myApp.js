@@ -28,7 +28,7 @@ app.get("/json", (req, res) => {
 });
 
 /** 6) Use the .env file to configure the app */
-process.env.MESSAGE_STYLE=uppercase;
+
  
 /** 7) Root-level Middleware - A logger */
 //  place it before all the routes !
