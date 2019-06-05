@@ -42,7 +42,7 @@ app.get("/now", function setDate(req, res, next){
     req.time = new Date().toString();
     next();
 }, function jsonDate(req, res){
-    res.json(req.time);
+    res.json({time: req.time});
 })
 
 
