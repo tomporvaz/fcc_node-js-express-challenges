@@ -5,6 +5,7 @@ var app = express();
 // --> 7)  Mount the Logger middleware here
 app.use(logger);
 
+
 // --> 11)  Mount the body-parser middleware  here
 
 
@@ -38,12 +39,14 @@ function logger(req, res, next){
 }
 
 /** 8) Chaining middleware. A Time server */
-app.get("/now", function setDate(req, res, next){
+app.get("/now", setDate, jsonDate);
+function setDate(req, res, next){
     req.time = new Date().toString();
     next();
-}, function jsonDate(req, res){
+}
+function jsonDate(req, res){
     res.json({time: req.time});
-})
+};
 
 
 /** 9)  Get input from client - Route parameters */
