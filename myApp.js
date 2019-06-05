@@ -40,6 +40,7 @@ function logger(req, res, next){
 /** 8) Chaining middleware. A Time server */
 app.get("/now", function setDate(req, res, next){
     req.time = new Date().toString();
+    next();
 }, function jsonDate(req, res){
     res.json(req.time);
 })
